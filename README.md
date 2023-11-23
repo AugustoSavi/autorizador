@@ -13,17 +13,21 @@ O projeto sera responsavel por processar um array de eventos, podendo ser por en
     # ACCOUNT_EVENT -> processa criacao de uma nova conta
     {
       "account": {
-      "active-card": bool,
-      "available-limit": number
+          "active-card": bool,
+          "available-limit": number
+      }
     }
+```
 
+```bash
     # TRANSACTION_EVENT -> processa uma transacao financeira
    {
       "transaction": {
-      "merchant": string,
-      "amount": number,
-      "time": DateTime
-    }
+          "merchant": string,
+          "amount": number,
+          "time": DateTime
+      }
+  }
 ```
 
 O retorno do processamento deve sempre seguir o formato, account referente a account processada e violations um array de string com a regras de validacao, caso nao tenha nenhum problema de validacao devera retornar [] array vazio
