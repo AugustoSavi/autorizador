@@ -30,6 +30,8 @@ jacocoTestReport {
         xml.required = true
         csv.required = false
         html.required = true
+        //for XML
+        xml.destination file("${buildDir}/reports/jacoco.xml")
     }
 }
 
@@ -38,5 +40,6 @@ sonarqube {
         property 'sonar.projectKey', 'AugustoSavi_autorizador'
         property 'sonar.organization', 'augustosavi'
         property 'sonar.host.url', 'https://sonarcloud.io'
+        property 'sonar.coverage.jacoco.xmlReportPaths', '${project.buildDir}/reports/jacoco.xml'
     }
 }
