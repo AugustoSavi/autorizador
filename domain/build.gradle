@@ -38,6 +38,5 @@ sonarqube {
         property 'sonar.projectKey', 'AugustoSavi_autorizador'
         property 'sonar.organization', 'augustosavi'
         property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.coverage.jacoco.xmlReportPaths', "/domain/build/jacoco/test.exec"
     }
 }
