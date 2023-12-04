@@ -16,15 +16,9 @@ public class AccountEvent implements DomainEvent {
         return activeCard;
     }
 
-    public void setActiveCard(boolean activeCard) {
-        this.activeCard = activeCard;
-    }
 
     public double getAvailableLimit() {
         return availableLimit;
     }
 
-    public void setAvailableLimit(double availableLimit) {
-        this.availableLimit = availableLimit;
-    }
 }
