@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
     id "org.sonarqube" version "4.4.1.3373"
 }
 
@@ -13,7 +14,6 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-// https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
@@ -21,10 +21,23 @@ test {
     useJUnitPlatform()
 }
 
-sonar {
+jacoco {
+    toolVersion '0.8.10'
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.required = true
+    }
+}
+
+sonarqube {
     properties {
-        property "sonar.projectKey", "AugustoSavi_autorizador"
-        property "sonar.organization", "augustosavi"
-        property "sonar.host.url", "https://sonarcloud.io"
+        property 'sonar.projectKey', 'AugustoSavi_autorizador'
+        property 'sonar.organization', 'augustosavi'
+        property 'sonar.host.url', 'https://sonarcloud.io'
+        property 'sonar.coverage.jacoco.xmlReportPaths', "/domain/build/jacoco/test.exec"
     }
 }
