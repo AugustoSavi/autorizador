@@ -13,17 +13,21 @@ O projeto sera responsavel por processar um array de eventos, podendo ser por en
     # ACCOUNT_EVENT -> processa criacao de uma nova conta
     {
       "account": {
-      "active-card": bool,
-      "available-limit": number
+          "active-card": bool,
+          "available-limit": number
+      }
     }
+```
 
+```bash
     # TRANSACTION_EVENT -> processa uma transacao financeira
    {
       "transaction": {
-      "merchant": string,
-      "amount": number,
-      "time": DateTime
-    }
+          "merchant": string,
+          "amount": number,
+          "time": DateTime
+      }
+  }
 ```
 
 O retorno do processamento deve sempre seguir o formato, account referente a account processada e violations um array de string com a regras de validacao, caso nao tenha nenhum problema de validacao devera retornar [] array vazio
@@ -37,12 +41,12 @@ O retorno do processamento deve sempre seguir o formato, account referente a acc
 ```
 
 ## :information_source: Regras de validacao
-- [ ] ACCOUNT_NOT_INITIALIZED -> nao deve permitir nenhum transacao se a conta ainda nao foi inicializada
-- [ ] CARD_NOT_ACTIVE -> nao deve processar nenhuma transacao caso o cartao nao esteja ativo
-- [ ] DOUBLED_TRANSACTION -> nao deve permitir mais de uma transacao do mesmo lojista com o mesmo valor em menos de 1 minuto
-- [ ] HIGH_FREQUENCY_SMALL_INTERVAL -> nao deve permitir mais de uma transacao do mesmo lojista ao mesmo tempo
-- [ ] INSUFFICIENT_LIMIT -> nao deve processar uma transacao caso a conta nao tenha o limite suficiente
-- [ ] ACCOUNT_ALREADY_CREATED -> nao deve permitir inicializar uma conta mais de uma vez
+- [x] ACCOUNT_NOT_INITIALIZED -> nao deve permitir nenhum transacao se a conta ainda nao foi inicializada
+- [x] CARD_NOT_ACTIVE -> nao deve processar nenhuma transacao caso o cartao nao esteja ativo
+- [x] DOUBLED_TRANSACTION -> nao deve permitir mais de uma transacao do mesmo lojista com o mesmo valor em menos de 1 minuto
+- [x] HIGH_FREQUENCY_SMALL_INTERVAL -> nao deve permitir mais de uma transacao do mesmo lojista ao mesmo tempo
+- [x] INSUFFICIENT_LIMIT -> nao deve processar uma transacao caso a conta nao tenha o limite suficiente
+- [x] ACCOUNT_ALREADY_CREATED -> nao deve permitir inicializar uma conta mais de uma vez
 
 ## :rocket: Requsito Tecnico
 Projeto deve ter no minimo 98% de cobertura de testes
