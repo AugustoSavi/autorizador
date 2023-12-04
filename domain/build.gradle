@@ -30,6 +30,8 @@ jacocoTestReport {
         xml.required = true
         csv.required = false
         html.required = true
+        //to create coverage report in html
+        html.destination file("${buildDir}/reports/coverage")
         //for XML
         xml.destination file("${buildDir}/reports/jacoco.xml")
     }
@@ -40,6 +42,7 @@ sonarqube {
         property 'sonar.projectKey', 'AugustoSavi_autorizador'
         property 'sonar.organization', 'augustosavi'
         property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.coverage.jacoco.xmlReportPaths', '${project.buildDir}/reports/jacoco.xml'
+        property 'sonar.core.codeCoveragePlugin', 'jacoco'
+        property 'sonar.coverage.jacoco.xmlReportPaths', 'domain/reports/jacoco.xml'
     }
 }
