@@ -5,11 +5,10 @@ import org.autorizador.account.AccountEvent;
 import org.autorizador.transaction.TransactionEvent;
 
 import java.time.LocalDateTime;
-import java.util.Locale;
 
 public final class TransactionEventFactory {
 
-    public static TransactionEvent fromNow(){
+    public static TransactionEvent fromNow() {
         return new TransactionEvent(
                 new Faker().name().name(),
                 2.00,
@@ -17,33 +16,28 @@ public final class TransactionEventFactory {
         );
     }
 
-    public static TransactionEvent fromTime(LocalDateTime localDateTime){
+    public static TransactionEvent fromTime(LocalDateTime time) {
         return new TransactionEvent(
                 new Faker().name().name(),
                 2.00,
-                localDateTime
+                time
         );
     }
 
-    public static TransactionEvent fromAmount(double amount){
+    public static TransactionEvent fromAmmout(double ammount) {
         return new TransactionEvent(
                 new Faker().name().name(),
-                amount,
+                ammount,
                 LocalDateTime.now()
         );
     }
 
-    public static AccountEvent accountEvent(){
-        return new AccountEvent(
-                true,
-                250.0
-        );
+    public static AccountEvent accoutEvent() {
+        return new AccountEvent(true, 250.0);
     }
 
-    public static AccountEvent accountCardNotActiveEvent(){
-        return new AccountEvent(
-                false,
-                250.0
-        );
+    public static AccountEvent accoutCardNotActive() {
+        return new AccountEvent(false, 250.0);
     }
+
 }

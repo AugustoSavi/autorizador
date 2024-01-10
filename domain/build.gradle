@@ -1,19 +1,16 @@
 plugins {
-    id 'java'
-    id 'jacoco'
+    id 'java-library'
+    id 'java-conventions'
     id "org.sonarqube" version "4.4.1.3373"
 }
 
 group = 'org.autorizador'
-version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
@@ -21,23 +18,7 @@ test {
     useJUnitPlatform()
 }
 
-jacoco {
-    toolVersion '0.8.10'
-}
-
-jacocoTestReport {
-    reports {
-        xml.required = true
-        csv.required = false
-        html.required = true
-        //to create coverage report in html
-        html.destination file("${buildDir}/reports/coverage")
-        //for XML
-        xml.destination file("${buildDir}/reports/jacoco.xml")
-    }
-}
-
-sonarqube {
+sonar {
     properties {
         property 'sonar.projectKey', 'AugustoSavi_autorizador'
         property 'sonar.organization', 'augustosavi'
